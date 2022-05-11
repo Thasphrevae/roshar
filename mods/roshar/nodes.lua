@@ -4,6 +4,11 @@ minetest.register_node("roshar:grass", {
 	tiles = {"roshar_test_grass.png"},
 	is_ground_content = true,
 	groups = {crumbly=2},
+	
+	local above_objects = minetest.get_objects_inside_radius({x = pos.x + 3, y = pos.y + 1, z = pos.z + 3}, 0.5)
+
+	if (minetest.registered_nodes[above_node.roshar:grass].buildable_to and #above_objects == 0)
+		tiles = {"roshar_test_stone.png"},
 })
 
 minetest.register_node("roshar:stone", {
