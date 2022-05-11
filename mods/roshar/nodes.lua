@@ -53,7 +53,7 @@ minetest.register_node("roshar:shinovar_dirt_with_grass", {
 	drop = "roshar:shinovar_dirt",
 })
 
-minetest.register_node(roshar:crem_block", {
+minetest.register_node("roshar:crem_block", {
 	description = ("Crem Block"),
 	tiles = {"crem_block.png"},
 	is_ground_content = true,
@@ -61,7 +61,7 @@ minetest.register_node(roshar:crem_block", {
 	drop = "roshar:crem",
 })
 
-minetest.register_node(roshar:hardened_crem", {
+minetest.register_node("roshar:hardened_crem", {
 	description = ("Hardened Crem Block"),
 	tiles = {"hardened_crem.png"},
 	is_ground_content = true,
