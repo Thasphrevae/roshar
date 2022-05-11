@@ -134,3 +134,18 @@ minetest.register_biome({
 --     },
 
 -- })
+
+minetest.register_biome({
+	name = "shinovar",
+	node_top = "roshar:shinovar_dirt_with_grass",
+	depth_top = 1,
+	node_filler = "roshar:shinovar_dirt",
+	depth_filler = 1,
+	node_stone = "rosharstone",
+	node_riverbed = "roshar:sand",
+	depth_riverbed = 2,
+	y_max = 31000,
+	y_min = -5,
+	heat_point = 50,
+	humidity_point = 50,
+})
