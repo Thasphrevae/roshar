@@ -27,7 +27,7 @@ minetest.register_alias("mapgen_tree","roshar:grass")
 
 
 minetest.register_biome({
-    name = "roshar_surface",
+    name = "roshar_stone_plain",
     node_top = "roshar:stone",
     depth_top = 1,
     -- Node forming surface layer of biome and thickness of this layer
@@ -136,12 +136,28 @@ minetest.register_biome({
 -- })
 
 minetest.register_biome({
+	name = "roshar_crem_plain",
+	node_top = "roshar:crem_with_grass",
+	depth_top = 1,
+	node_filler = "roshar:crem_block",
+	depth_filler = 2,
+	node_stone = "roshar:stone",
+	node_riverbed = "roshar:crem_block",
+	depth_riverbed = 2,
+	y_max = 31000,
+	y_min = -5,
+	heat_point = 50,
+	humidity_point = 50,
+})
+
+
+minetest.register_biome({
 	name = "shinovar",
 	node_top = "roshar:shinovar_dirt_with_grass",
 	depth_top = 1,
 	node_filler = "roshar:shinovar_dirt",
-	depth_filler = 1,
-	node_stone = "rosharstone",
+	depth_filler = 4,
+	node_stone = "roshar:stone",
 	node_riverbed = "roshar:sand",
 	depth_riverbed = 2,
 	y_max = 31000,
