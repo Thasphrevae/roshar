@@ -1,6 +1,6 @@
 
-minetest.register_node("roshar:stone_with_grass", {
-	description = "Stone with Grass",
+minetest.register_node("roshar:crem_with_grass", {
+	description = "Crem with Grass",
 	tiles = {"roshar_test_grass.png"},
 	is_ground_content = true,
 	groups = {crumbly=2},
