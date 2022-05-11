@@ -55,3 +55,18 @@ minetest.register_node("roshar:shinovar_dirt_with_grass", {
 		footstep = {name = "default_grass_footstep", gain = 0.4},
 	}),
 })
+
+minetest.register_node(roshar:crem_block", {
+	description = ("Crem Block"),
+	tiles = {"crem_block.png"},
+	is_ground_content = true,
+	groups = {crumbly=1},
+	drop = "roshar:crem",
+})
+
+minetest.register_node(roshar:hardened_crem", {
+	description = ("Hardened Crem Block"),
+	tiles = {"hardened_crem.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=2},
+})
