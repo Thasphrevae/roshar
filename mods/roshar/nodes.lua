@@ -51,9 +51,6 @@ minetest.register_node("roshar:shinovar_dirt_with_grass", {
 			tileable_vertical = false}},
 	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
 	drop = "roshar:shinovar_dirt",
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name = "default_grass_footstep", gain = 0.4},
-	}),
 })
 
 minetest.register_node(roshar:crem_block", {
