@@ -36,3 +36,16 @@ minetest.register_node("roshar:air", {
     drop = "",
     groups = {not_in_creative_inventory=1}
 })
+
+minetest.register_node("roshar:shinovar_dirt_with_grass", {
+	description = ("Dirt with Shin Grass"),
+	tiles = {"shin_grass.png",
+		"shinovar_dirt.png",
+		{name = "shinovar_dirt.png^shin_grass_side.png",
+			tileable_vertical = false}},
+	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
+	drop = "roshar:shinovar_dirt",
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name = "default_grass_footstep", gain = 0.4},
+	}),
+})
