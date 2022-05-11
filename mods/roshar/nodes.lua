@@ -9,6 +9,7 @@ minetest.register_node("roshar:stone_with_grass", {
 
 	if (minetest.registered_nodes[above_node.roshar:grass].buildable_to and #above_objects == 0)
 		tiles = {"roshar_test_stone.png"},
+	end
 })
 
 minetest.register_node("roshar:stone", {
