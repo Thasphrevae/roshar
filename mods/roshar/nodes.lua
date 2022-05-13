@@ -4,12 +4,6 @@ minetest.register_node("roshar:crem_with_grass", {
 	tiles = {"roshar_test_grass.png"},
 	is_ground_content = true,
 	groups = {crumbly=2},
-	
-	local above_objects = minetest.get_objects_inside_radius({x = pos.x + 3, y = pos.y + 1, z = pos.z + 3}, 0.5)
-
-	if (minetest.registered_nodes[above_node.roshar:grass].buildable_to and #above_objects == 0)
-		tiles = {"roshar_test_stone.png"},
-	end
 })
 
 minetest.register_node("roshar:stone", {
@@ -53,6 +47,13 @@ minetest.register_node("roshar:shinovar_dirt_with_grass", {
 	drop = "roshar:shinovar_dirt",
 })
 
+minetest.register_node("roshar:shinovar_dirt", {
+	description = ("Shinovar Dirt"),
+	tiles = {"shinovar_dirt.png"},
+	is_ground_content = true,
+	groups = {crumbly=1},
+})
+
 minetest.register_node("roshar:crem_block", {
 	description = ("Crem Block"),
 	tiles = {"crem_block.png"},
@@ -66,4 +67,107 @@ minetest.register_node("roshar:hardened_crem", {
 	tiles = {"hardened_crem.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=2},
+})
+
+minetest.register_node("roshar:rockbud", {
+	description = ("Rockbud"),
+	mesh = "rockbud.obj",
+	tiles = {"crem_block.png"},
+	drawtype = "mesh",
+	groups = {cracky = 1},
+	use_texture_alpha = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+})
+
+---Liquids, copied from default minetest
+minetest.register_node("roshar:water_source", {
+	description = ("Water Source"),
+	drawtype = "liquid",
+	waving = 3,
+	tiles = {
+		{
+			name = "default_water_source_animated.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+		},
+		{
+			name = "default_water_source_animated.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+		},
+	},
+	use_texture_alpha = "blend",
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "",
+	drowning = 1,
+	liquidtype = "source",
+	liquid_alternative_flowing = "roshar:water_flowing",
+	liquid_alternative_source = "roshar:water_source",
+	liquid_viscosity = 1,
+	post_effect_color = {a = 103, r = 30, g = 60, b = 90},
+	groups = {water = 3, liquid = 3, cools_lava = 1},
+})
+
+minetest.register_node("roshar:water_flowing", {
+	description = ("Flowing Water"),
+	drawtype = "flowingliquid",
+	waving = 3,
+	tiles = {"default_water.png"},
+	special_tiles = {
+		{
+			name = "default_water_flowing_animated.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 0.5,
+			},
+		},
+		{
+			name = "default_water_flowing_animated.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 0.5,
+			},
+		},
+	},
+	use_texture_alpha = "blend",
+	paramtype = "light",
+	paramtype2 = "flowingliquid",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "",
+	drowning = 1,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "roshar:water_flowing",
+	liquid_alternative_source = "roshar:water_source",
+	liquid_viscosity = 1,
+	post_effect_color = {a = 103, r = 30, g = 60, b = 90},
+	groups = {water = 3, liquid = 3, not_in_creative_inventory = 1,
+		cools_lava = 1},
 })

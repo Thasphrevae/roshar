@@ -7,8 +7,8 @@ minetest.clear_registered_biomes()
 minetest.clear_registered_decorations()
 
 minetest.register_alias("mapgen_stone", "roshar:stone")
-minetest.register_alias("mapgen_water_source", "roshar:sand")
-minetest.register_alias("mapgen_river_water_source", "roshar:sand")
+minetest.register_alias("mapgen_water_source", "roshar:water_source")
+minetest.register_alias("mapgen_river_water_source", "roshar:water_source")
 
 minetest.register_alias("mapgen_apple","roshar:stone")
 minetest.register_alias("mapgen_dirt","roshar:grass")
@@ -27,29 +27,29 @@ minetest.register_alias("mapgen_tree","roshar:grass")
 
 
 minetest.register_biome({
-    name = "roshar_stone_plain",
-    node_top = "roshar:stone",
+    name = "crem_plain",
+    node_top = "roshar:crem_block",
     depth_top = 1,
     -- Node forming surface layer of biome and thickness of this layer
-    node_filler = "roshar:stone",
+    node_filler = "roshar:hardened_crem",
     depth_filler = 3,
     -- Node forming lower layer of biome and thickness of this layer
     node_stone = "roshar:stone",
     -- Node that replaces all stone nodes between roughly y_min and y_max.
-    node_water = "roshar:sand",
-    node_river_water = "roshar:sand",
+    node_water = "roshar:water_source",
+    node_river_water = "roshar:water_source",
     node_riverbed = "roshar:sand",
-    depth_riverbed = 2,
+    depth_riverbed = 5,
     -- Node placed under river water and thickness of this layer
-    node_cave_liquid = "roshar:air",
-    node_cave_liquid = {"roshar:air", "roshar:air"},
+    node_cave_liquid = "roshar:water_source",
+    node_cave_liquid = {"roshar:water_source", "roshar:water_source"},
     -- Nodes placed inside 50% of the medium size caves.
     -- Multiple nodes can be specified, each cave will use a randomly
     -- chosen node from the list.
     -- If this field is left out or 'nil', cave liquids fall back to
     -- classic behaviour of lava and water distributed using 3D noise.
     -- For no cave liquid, specify "air".
-    y_max = 1000,
+    y_max = 31000,
     y_min = 1,
     vertical_blend = 8,
     -- Vertical distance in nodes above 'y_max' over which the biome will
@@ -136,7 +136,7 @@ minetest.register_biome({
 -- })
 
 minetest.register_biome({
-	name = "roshar_crem_plain",
+	name = "grassy_crem_plain",
 	node_top = "roshar:crem_with_grass",
 	depth_top = 1,
 	node_filler = "roshar:crem_block",
@@ -145,7 +145,7 @@ minetest.register_biome({
 	node_riverbed = "roshar:crem_block",
 	depth_riverbed = 2,
 	y_max = 31000,
-	y_min = -5,
+	y_min = 1,
 	heat_point = 50,
 	humidity_point = 50,
 })
@@ -161,7 +161,18 @@ minetest.register_biome({
 	node_riverbed = "roshar:sand",
 	depth_riverbed = 2,
 	y_max = 31000,
-	y_min = -5,
+	y_min = 1,
 	heat_point = 50,
 	humidity_point = 50,
+})
+
+minetest.register_decoration({
+    deco_type = "simple",
+    place_on = {"roshar:crem_with_grass", "roshar:crem_block"},
+    sidelen = 16,
+    fill_ratio = 0.1,
+    biomes = {"grassy_crem_plain", "crem_plain"},
+    y_max = 200,
+    y_min = 1,
+    decoration = "roshar:rockbud",
 })
