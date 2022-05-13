@@ -39,10 +39,10 @@ minetest.register_biome({
     node_water = "roshar:water_source",
     node_river_water = "roshar:water_source",
     node_riverbed = "roshar:sand",
-    depth_riverbed = 5,
+    depth_riverbed = 2,
     -- Node placed under river water and thickness of this layer
     node_cave_liquid = "roshar:water_source",
-    node_cave_liquid = {"roshar:water_source", "roshar:water_source"},
+    node_cave_liquid = {"roshar:water_source",},
     -- Nodes placed inside 50% of the medium size caves.
     -- Multiple nodes can be specified, each cave will use a randomly
     -- chosen node from the list.
@@ -50,13 +50,13 @@ minetest.register_biome({
     -- classic behaviour of lava and water distributed using 3D noise.
     -- For no cave liquid, specify "air".
     y_max = 31000,
-    y_min = 1,
+    y_min = 30,
     vertical_blend = 8,
     -- Vertical distance in nodes above 'y_max' over which the biome will
     -- blend with the biome above.
     -- Set to 0 for no vertical blend. Defaults to 0.
-    heat_point = 50,
-    humidity_point = 50,
+    heat_point = 60,
+    humidity_point = 20,
     -- Characteristic temperature and humidity for the biome.
     -- These values create 'biome points' on a voronoi diagram with heat and
     -- humidity as axes. The resulting voronoi cells determine the
@@ -144,10 +144,10 @@ minetest.register_biome({
 	node_stone = "roshar:stone",
 	node_riverbed = "roshar:crem_block",
 	depth_riverbed = 2,
-	y_max = 31000,
-	y_min = 1,
-	heat_point = 50,
-	humidity_point = 50,
+	y_max = 50,
+	y_min = -20,
+	heat_point = 55,
+	humidity_point = 35,
 })
 
 
@@ -161,11 +161,12 @@ minetest.register_biome({
 	node_riverbed = "roshar:sand",
 	depth_riverbed = 2,
 	y_max = 31000,
-	y_min = 1,
-	heat_point = 50,
-	humidity_point = 50,
+	y_min = 100,
+	heat_point = 40,
+	humidity_point = 35,
 })
 
+-- Decorations
 minetest.register_decoration({
     deco_type = "simple",
     place_on = {"roshar:crem_with_grass", "roshar:crem_block"},
